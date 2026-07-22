@@ -15,9 +15,11 @@
       "architect": {
         "build": {
           "builder": "@angular/build:application",
-          "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
+         "options": {
+         "outputPath": "dist/event-management-platform",
+          "index": "src/index.html",
+         "browser": "src/main.ts",
+         "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",

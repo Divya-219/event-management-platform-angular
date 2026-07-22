@@ -1,0 +1,183 @@
+@if(event){
+<div class="booking-page">
+  <div class="booking-wrapper">
+    <h1 class="booking-heading">
+      Ticket Booking
+    </h1>
+    <p class="step-text">
+      Step {{ step }} of 4
+    </p>
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        [style.width.%]="step * 25">
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+
+    @if(step === 1){
+      <div class="booking-card">
+        <h2>Select Tickets</h2>
+        <h3>{{ event ?.title }}</h3>
+        <p>{{ event ?.date }}</p>
+        <p>{{ event ?.location }}</p>
+        <label>Ticket Type</label>
+        <select #ticketSelect
+          (change)="updateTicket(ticketSelect.value)">
+          @for(ticket of event.ticketTypes; track ticket.id){
+            <option [value]="ticket.id">
+              {{ ticket.name }} - ${{ ticket.price }}
+
+            </option>
+
+          }
+
+        </select>
+
+        <label>Quantity</label>
+
+        <input
+          type="number"
+          min="1"
+          [value]="quantity"
+          #qty
+          (input)="updateQuantity(qty.value)">
+
+        <h2>Total Price : ${{ total }}</h2>
+
+        <button
+          class="continue-btn"
+          (click)="nextStep()">
+
+          Continue
+
+        </button>
+
+      </div>
+
+    }
+
+    <!-- STEP 2 -->
+
+    @if(step === 2){
+
+      <div class="booking-card">
+        <h2>Attendee Information</h2>
+        <label>Full Name</label>
+
+       <input
+        [(ngModel)]="fullName"
+         name="fullName"
+        #fullNameInput="ngModel"
+        required
+        placeholder="Enter your name">
+        @if(fullNameInput.invalid && fullNameInput.touched){
+        <p class="help-block">
+        Name is required
+        </p>
+
+        }
+        <label>Email</label>
+
+        <input
+        [(ngModel)]="email"
+        name="email"
+        #emailInput="ngModel"
+        required
+       email
+        placeholder="Enter email">
+        @if(emailInput.invalid && emailInput.touched){
+
+        <p class="help-block">
+        Enter a valid email
+        </p>
+
+        }
+
+        <label>Phone</label>
+        <input
+          [(ngModel)]="phone"
+          name="phone"
+          #phoneInput="ngModel"
+          required
+          minlength="10"
+          maxlength="10"
+          placeholder="Enter phone">
+          @if(phoneInput.invalid && phoneInput.touched){
+          <p class="help-block">
+            Phone must be 10 digits 
+          </p>
+          }
+        <div class="buttons">
+          <button
+            (click)="previousStep()">
+            Back
+          </button>
+
+        <button 
+        (click)="nextStep()"
+        [disabled]="
+        fullNameInput.invalid ||
+        emailInput.invalid ||
+        phoneInput.invalid
+        ">
+        Continue
+        </button>
+        </div>
+      </div>
+
+    }
+
+    <!-- STEP 3 -->
+@if(step === 3){
+<div class="booking-card">
+  <h2>Booking Summary</h2>
+  <p><strong>Event:</strong> {{ event.title }}</p>
+  <p><strong>Date:</strong> {{ event.date }}</p>
+  <p><strong>Ticket:</strong> {{ selectedTicket.name }}</p>
+  <p><strong>Quantity:</strong> {{ quantity }}</p>
+  <p><strong>Total:</strong> ${{ total }}</p>
+  <hr>
+
+  <h3>Attendee</h3>
+  <p>{{ fullName }}</p>
+  <p>{{ email }}</p>
+  <p>{{ phone }}</p>
+  <div class="buttons">
+    <button (click)="previousStep()">
+      Back
+    </button>
+
+    <button (click)="confirmBooking()">
+      Confirm Booking
+    </button>
+  </div>
+</div>
+
+}
+@if(step === 4){
+<div class="booking-card">
+
+  <h2>Booking Confirmed!</h2> 
+  <p class="success">
+    Your booking has been successfully created.
+  </p>
+  <hr>
+  <p><strong>Reference:</strong> {{ bookingReference }}</p>
+  <p><strong>Event:</strong> {{ event.title }}</p>
+  <p><strong>Ticket:</strong> {{ selectedTicket.name }}</p>
+  <p><strong>Quantity:</strong> {{ quantity }}</p>
+  <p><strong>Total:</strong> ${{ total }}</p>
+  <button routerLink="/my-bookings">
+    View My Bookings
+  </button>
+</div>
+
+}
+</div>
+</div>
+
+}
+

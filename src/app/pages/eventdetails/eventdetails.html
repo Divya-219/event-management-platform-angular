@@ -1,0 +1,40 @@
+@if(event !== undefined){
+<div class="event-details-container">
+  <img
+    class="event-banner"
+    [src]="event.image"
+    [alt]="event.title">
+  <div class="event-info">
+    <p class="category">{{ event.category }}</p>
+    <h1 class="event-title">{{ event.title }}</h1>
+    <p>Date: {{ event.date }}</p>
+    <p>Time: {{ event.time }}</p>
+    <p>Location: {{ event.location }}</p>
+    <p>Venue: {{ event.venue }}</p>
+    <p>Organizer: {{ event.organizerName }}</p>
+    <p class="description">
+      {{ event.description }}
+    </p>
+    <h2 class="price">
+      ${{ event.ticketTypes[0].price }}
+    </h2>
+    <section class="ticket-section">
+      <h2>Ticket Types</h2>
+      @for(ticket of event.ticketTypes; track ticket.id){
+        <div class="ticket-card">
+          <h4>{{ ticket.name }}</h4>
+          <p>${{ ticket.price }}</p>
+          <p>Available: {{ ticket.available }}</p>
+        </div>
+      }
+
+      <button
+        class="book-btn"
+        [routerLink]="['/booking', event.id]">
+        Book Tickets
+      </button>
+    </section>
+  </div>
+</div>
+
+}

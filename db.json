@@ -1,0 +1,211 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Angular Conference 2026",
+      "description": "Annual Angular developers conference",
+      "category": "Technology",
+      "date": "2026-07-15",
+      "time": "09:00 AM",
+      "location": "Toronto",
+      "venue": "Convention Centre",
+      "image": "images/image1.jpg",
+      "organizerName": "Tech Events Inc",
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 70,
+          "available": 100
+        },
+        {
+          "id": "2",
+          "name": "VIP",
+          "price": 120,
+          "available": 25
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Music Festival",
+      "description": "Live music with famous artists.",
+      "category": "Music",
+      "date": "2026-08-10",
+      "time": "02:00 PM",
+      "location": "Vancouver",
+      "venue": "City Park",
+      "image": "images/image6.jpg",
+      "organizerName": "Music Canada",
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 50,
+          "available": 150
+        },
+        {
+          "id": "2",
+          "name": "VIP",
+          "price": 150,
+          "available": 30
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Art Expo",
+      "description": "Discover amazing artwork from talented artists.",
+      "category": "Arts",
+      "date": "2026-08-05",
+      "time": "10:00 AM",
+      "location": "Montreal",
+      "venue": "Art Museum",
+      "image": "images/image3.jpg",
+      "organizerName": "Art Canada",
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 35,
+          "available": 80
+        },
+        {
+          "id": "2",
+          "name": "VIP",
+          "price": 100,
+          "available": 20
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "ZSxpOwckTIg",
+      "userId": "user1",
+      "eventId": "1",
+      "eventTitle": "Angular Conference 2026",
+      "eventDate": "2025-07-15",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 8,
+          "price": 45
+        }
+      ],
+      "attendees": [
+        {
+          "name": "yy",
+          "email": "yy",
+          "phone": "yyy"
+        }
+      ],
+      "totalAmount": 400,
+      "status": "Confirmed",
+      "bookingDate": "2026-07-18",
+      "referenceNumber": "BK3674"
+    },
+    {
+      "id": "aGp88OsB8Ek",
+      "userId": "user1",
+      "eventId": "3",
+      "eventTitle": "Art Expo",
+      "eventDate": "2026-08-05",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 5,
+          "price": 35
+        }
+      ],
+      "attendees": [
+        {
+          "name": "l",
+          "email": "l@gmail.com",
+          "phone": "1234567891"
+        }
+      ],
+      "totalAmount": 175,
+      "status": "Confirmed",
+      "bookingDate": "2026-07-20",
+      "referenceNumber": "BK5099"
+    },
+    {
+      "id": "CSNregqa8iM",
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Music Festival",
+      "eventDate": "2026-08-10",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 4,
+          "price": 50
+        }
+      ],
+      "attendees": [
+        {
+          "name": "h",
+          "email": "h@gmail.com",
+          "phone": "4141414141"
+        }
+      ],
+      "totalAmount": 200,
+      "status": "Confirmed",
+      "bookingDate": "2026-07-21",
+      "referenceNumber": "BK3041"
+    },
+    {
+      "id": "BD689HDRBcg",
+      "userId": "user1",
+      "eventId": "3",
+      "eventTitle": "Art Expo",
+      "eventDate": "2026-08-05",
+      "tickets": [
+        {
+          "type": "VIP",
+          "quantity": 2,
+          "price": 100
+        }
+      ],
+      "attendees": [
+        {
+          "name": "d",
+          "email": "d@gmail.cpm",
+          "phone": "7878787878"
+        }
+      ],
+      "totalAmount": 200,
+      "status": "Confirmed",
+      "bookingDate": "2026-07-21",
+      "referenceNumber": "BK860"
+    },
+    {
+      "id": "MAMM1fTSwvM",
+      "userId": "user1",
+      "eventId": "1",
+      "eventTitle": "Angular Conference 2026",
+      "eventDate": "2025-07-15",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 10,
+          "price": 70
+        }
+      ],
+      "attendees": [
+        {
+          "name": "p",
+          "email": "p@test.com",
+          "phone": "1919191919"
+        }
+      ],
+      "totalAmount": 700,
+      "status": "Cancelled",
+      "bookingDate": "2026-07-21",
+      "referenceNumber": "BK968"
+    }
+
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,33 @@
+<div class="profile-container">
+<h1>My Profile</h1>
+<div class="profile-card">
+
+@if(!isEdit){
+<h2>{{user.name}}</h2>
+<p>
+Email: {{user.email}}
+</p>
+<p>
+Phone: {{user.phone}}
+</p>
+<button (click)="editProfile()">
+Edit Profile
+</button>
+}
+@if(isEdit){
+<label>Name</label>
+<input
+[(ngModel)]="user.name">
+<label>Email</label>
+<input
+[(ngModel)]="user.email">
+<label>Phone</label>
+<input
+[(ngModel)]="user.phone">
+<button
+(click)="saveProfile()">
+Save
+</button>
+}
+</div>
+</div>

@@ -1,0 +1,70 @@
+<app-hero (searchEvent)="search=$event"></app-hero>
+<section class="events-section">
+<h2 class="section-title"> Upcoming Events</h2>
+<div class="filters">
+
+  <select [(ngModel)]="category">
+    <option value="">All Categories</option>
+    <option value="Technology">Technology</option>
+    <option value="Music">Music</option>
+    <option value="Arts">Arts</option>
+    <option value="Sports">Sports</option>
+  </select>
+
+  <select [(ngModel)]="price">
+    <option value="">All Prices</option>
+    <option value="free">Free</option>
+    <option value="under50">Under $50</option>
+    <option value="50plus">$50+</option>
+  </select>
+
+  <select [(ngModel)]="sort">
+    <option value="">Sort By</option>
+    <option value="date">Date</option>
+    <option value="price">Price</option>
+  </select>
+  <select [(ngModel)]="dateFilter">
+  <option value="">
+    All Dates
+  </option>
+
+  <option value="upcoming">
+    Upcoming
+  </option>
+
+  <option value="week">
+    This Week
+  </option>
+
+  <option value="month">
+    This Month
+  </option>
+
+</select>
+</div>
+
+@if(loading){
+
+<p class="loading">
+Loading events...
+</p>
+}
+
+@if(errorMessage){
+<p class="error">
+{{errorMessage}}
+</p>
+
+}
+
+@if(!loading && (events | filterEvent:search:category:price:sort:dateFilter).length === 0){
+<p class="empty">
+No events found.
+</p>
+}
+<div class="events-grid">
+@for(event of events | filterEvent:search:category:price:sort:dateFilter; track event.id){
+  <app-event-card [event]="event"></app-event-card>
+}
+</div>
+</section>
