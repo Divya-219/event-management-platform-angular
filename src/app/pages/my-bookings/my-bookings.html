@@ -1,94 +1,59 @@
 <h1>My Bookings</h1>
 @if(successMessage){
-
 <p class="success">
   {{successMessage}}
 </p>
 
 }
 <select #f (change)="filter=f.value">
-
     <option>All</option>
-
     <option>Upcoming</option>
-
     <option>Past</option>
-
 </select>
 @if(loading){
-
 <p>Loading bookings...</p>
-
 }
-
-
 @if(errorMessage){
-
 <p>
 {{errorMessage}}
 </p>
-
 }
-
-
 @if(!loading && filteredBookings.length === 0){
-
 <p>
 No bookings yet.
 </p>
 }
 
 <div class="bookings-grid">
-
 @for(booking of filteredBookings; track booking.id){
-
 <div class="booking-card">
-
 <h2>{{booking.eventTitle}}</h2>
-
 <p>Date : {{booking.eventDate}}</p>
-
 <p>
-
 Tickets :
-
 {{booking.tickets[0].quantity}}
-
 </p>
 
 <p>
 
 Total :
-
 ${{booking.totalAmount}}
 
 </p>
-
 <p>
-
 Status :
-
 {{booking.status}}
 
 </p>
-
 <p>
 
 Reference :
-
 {{booking.referenceNumber}}
-
 </p>
-
 <button
 (click)="cancelBooking(booking.id)">
-
 Cancel Booking
-
 </button>
-
 </div>
-
 }
-
 </div>

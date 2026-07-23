@@ -11,14 +11,15 @@ import { Event } from '../models/event';
 export class Eventservice {
 
   http = inject(HttpClient);
+  private api='https://6a6127a1da10c59c18096d82.mockapi.io/event-management/events';
 
 
   getEvents(): Observable<Event[]> {
 
-    return this.http.get<Event[]>( 'http://localhost:3000/events');
+    return this.http.get<Event[]>(this.api);
   }
   getEventById(id: string): Observable<Event> {
-    return this.http.get<Event>(`http://localhost:3000/events/${id}`);
+    return this.http.get<Event>(`${this.api}/${id}`);
   }
 
 }
